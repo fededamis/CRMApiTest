@@ -12,38 +12,34 @@ namespace TestAPI.Controllers
 {
     public class PersonaController : ApiController
     {       
-        [Route("api/personas/{telefono}")]
+        [Route("api/personas/{nombre}")]
         [HttpGet]
-        public PersonaDTO Get(string telefono) 
+        public BaseDTO Get(string nombre) 
         {
             try
             {
-                var personaDTO = new PersonaDTO();
-
-                personaDTO.Log("Inicio GET");
+                var baseDTO = new BaseDTO();
+                baseDTO.Log("Inicio GET");
 
                 QueryExpression query = new QueryExpression("contact");
-                query.ColumnSet = new ColumnSet("firstname", "lastname", "telephone1");
-                query.Criteria.AddCondition("telephone1", ConditionOperator.Equal, telefono);
-                EntityCollection resultPersonas = personaDTO.service.RetrieveMultiple(query);
+                query.ColumnSet = new ColumnSet("firstname", "lastname");
+                query.Criteria.AddCondition("firstname", ConditionOperator.Equal, nombre);
+                EntityCollection resultPersonas = baseDTO.service.RetrieveMultiple(query);
 
                 if (resultPersonas.Entities.Count == 0)
                     Conflict();
                 //throw new Exception("No existe persona con ese telefono en CRM.");
 
-                Entity resultPersona = resultPersonas.Entities[0];
+                Entity resultPersona = resultPersonas.Entities.First();
 
                 Persona persona = new Persona();
                 persona.nombre = resultPersona.GetAttributeValue<string>("firstname");
-                persona.apellido = resultPersona.GetAttributeValue<string>("lastname");
-                persona.nroTelefono = resultPersona.GetAttributeValue<string>("telephone1");
+                persona.apellido = resultPersona.GetAttributeValue<string>("lastname");                
 
                 var datos = new Datos();
-                datos.Obj = persona;
-                //personaDTO.Datos.Add((Datos)persona);
-                personaDTO.Datos.Add(datos);
-
-                return personaDTO; 
+                datos.Obj = persona;               
+                baseDTO.Datos.Add(datos);               
+                return baseDTO; 
             }
             catch (Exception ex)
             {

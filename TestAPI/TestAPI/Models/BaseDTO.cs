@@ -2,13 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace TestAPI.Models
 {
+    [DataContract]
     public class BaseDTO
     {
+        [DataMember]
         public List<Datos> Datos { get; set; }
+        [DataMember]
         public List<Bitacora> Bitacora { get; set; }
         public IOrganizationService service;
 
