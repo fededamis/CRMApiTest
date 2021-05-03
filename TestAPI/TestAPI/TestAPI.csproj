@@ -163,7 +163,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseDTO.cs" />
+    <Compile Include="Models\ResponseDTO.cs" />
     <Compile Include="Models\CRMService.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

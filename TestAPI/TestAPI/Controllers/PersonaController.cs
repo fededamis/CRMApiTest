@@ -14,17 +14,17 @@ namespace TestAPI.Controllers
     {       
         [Route("api/personas/{nombre}")]
         [HttpGet]
-        public BaseDTO Get(string nombre) 
+        public ResponseDTO<Persona> Get(string nombre) 
         {
             try
             {
-                var baseDTO = new BaseDTO();
-                baseDTO.Log("Inicio GET");
+                var responseDTO = new ResponseDTO<Persona>();
+                responseDTO.Log("Inicio GET"); 
 
                 QueryExpression query = new QueryExpression("contact");
                 query.ColumnSet = new ColumnSet("firstname", "lastname");
                 query.Criteria.AddCondition("firstname", ConditionOperator.Equal, nombre);
-                EntityCollection resultPersonas = baseDTO.service.RetrieveMultiple(query);
+                EntityCollection resultPersonas = responseDTO.service.RetrieveMultiple(query);
 
                 if (resultPersonas.Entities.Count == 0)
                     Conflict();
@@ -34,12 +34,10 @@ namespace TestAPI.Controllers
 
                 Persona persona = new Persona();
                 persona.nombre = resultPersona.GetAttributeValue<string>("firstname");
-                persona.apellido = resultPersona.GetAttributeValue<string>("lastname");                
+                persona.apellido = resultPersona.GetAttributeValue<string>("lastname");
 
-                var datos = new Datos();
-                datos.Obj = persona;               
-                baseDTO.Datos.Add(datos);               
-                return baseDTO; 
+                responseDTO.Datos.Add(persona);
+                return responseDTO; 
             }
             catch (Exception ex)
             {

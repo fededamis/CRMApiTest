@@ -8,18 +8,18 @@ using System.Web;
 namespace TestAPI.Models
 {
     [DataContract]
-    public class BaseDTO
+    public class ResponseDTO<T>
     {
         [DataMember]
-        public List<Datos> Datos { get; set; }
+        public List<T> Datos { get; set; }
         [DataMember]
         public List<Bitacora> Bitacora { get; set; }
         public IOrganizationService service;
 
-        public BaseDTO ()
+        public ResponseDTO()
         {
             Bitacora = new List<Bitacora>();
-            Datos = new List<Datos>();
+            Datos = new List<T>();
             service = CRMService.GetService();
         }
 
@@ -39,10 +39,5 @@ namespace TestAPI.Models
             FechaLog = DateTime.Now.ToLocalTime().ToString();
             Log = log;
         }
-    }
-    
-    public class Datos
-    {    
-        public dynamic Obj;
-    }
+    }   
 }
