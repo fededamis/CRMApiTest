@@ -17,7 +17,9 @@ namespace TestAPI.Controllers
         public ResponseDTO<Persona> Get(string nombre) 
         {
             try
-            {
+            {   
+                //Example 
+                //http://localhost:63527/api/personas/Roberto
                 var responseDTO = new ResponseDTO<Persona>();
                 responseDTO.Log("Inicio GET"); 
 
