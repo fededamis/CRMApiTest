@@ -14,12 +14,16 @@ namespace TestAPI.Models
         public List<T> Datos { get; set; }
         [DataMember]
         public List<Bitacora> Bitacora { get; set; }
+        [DataMember]
+        public List<Error> Errores {get; set;}
+
         public IOrganizationService service;
 
         public ResponseDTO()
         {
-            Bitacora = new List<Bitacora>();
             Datos = new List<T>();
+            Bitacora = new List<Bitacora>();            
+            Errores = new List<Error>();
             service = CRMService.GetService();
         }
 
@@ -40,4 +44,9 @@ namespace TestAPI.Models
             Log = log;
         }
     }   
+
+    public class Error
+    {
+        public string DetalleError { get; set; }
+    }
 }

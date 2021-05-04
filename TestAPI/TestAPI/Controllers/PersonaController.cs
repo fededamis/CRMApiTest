@@ -16,11 +16,11 @@ namespace TestAPI.Controllers
         [HttpGet]
         public ResponseDTO<Persona> Get(string nombre) 
         {
+            //Example 
+            //http://localhost:63527/api/personas/Roberto
+            var responseDTO = new ResponseDTO<Persona>();
             try
-            {   
-                //Example 
-                //http://localhost:63527/api/personas/Roberto
-                var responseDTO = new ResponseDTO<Persona>();
+            {                                   
                 responseDTO.Log("Inicio GET"); 
 
                 QueryExpression query = new QueryExpression("contact");
@@ -29,8 +29,7 @@ namespace TestAPI.Controllers
                 EntityCollection resultPersonas = responseDTO.service.RetrieveMultiple(query);
 
                 if (resultPersonas.Entities.Count == 0)
-                    Conflict();
-                //throw new Exception("No existe persona con ese telefono en CRM.");
+                    throw new Exception("No existe persona con ese nombre en CRM.");
 
                 Entity resultPersona = resultPersonas.Entities.First();
 
@@ -43,8 +42,10 @@ namespace TestAPI.Controllers
             }
             catch (Exception ex)
             {
-                //cargar objeto Error
-                throw;
+                var error = new Error();
+                error.DetalleError = ex.Message;
+                responseDTO.Errores.Add(error);
+                return responseDTO;
             }           
         }        
     }
