@@ -1,3 +1,7 @@
 /TestAPI/.vs
 /TestAPI/TestAPI/bin
 /TestAPI/TestAPI/obj
+/TestAPI/packages
+/TestAPIEntityFramework/packages
+/TestAPIEntityFramework/TestAPIEntityFramework/obj
+/TestAPIEntityFramework/TestAPIEntityFramework/bin
