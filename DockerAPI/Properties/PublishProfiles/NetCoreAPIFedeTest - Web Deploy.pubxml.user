@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV9/A3ORbJ0Ktn48Pxy8YxAAAAAACAAAAAAADZgAAwAAAABAAAADMzHN96cN52M+56R6+qDSvAAAAAASAAACgAAAAEAAAAAOhgZk5EKdCnz8ckZze4zWAAAAAOxUmsNNmutr6E8Xca/T+zlaoWiR5gM6x5+sWmcEqUdqOpkR2CCzs17j9AE54QQ/zVkBXMukK4GoCkFZq5QAGamunyCE6CrBrziTfZOzylocY3jTwqaHjLHGRTf1hqnOaSct1aY1+orHh6vuXUqwwZkumJFkn9DDcFTxukihF1bEUAAAAYU183DNg70Vcz5769ftKVw5IDJU=</EncryptedPassword>
+    <History>True|2021-06-14T19:48:48.4891538Z;True|2021-06-14T16:46:04.8066234-03:00;True|2021-06-14T16:31:50.6972013-03:00;True|2021-06-14T16:05:32.5467612-03:00;True|2021-06-14T15:59:48.3602440-03:00;True|2021-06-14T15:55:18.7884046-03:00;True|2021-06-14T15:39:56.5872477-03:00;True|2021-06-14T15:28:29.7562700-03:00;True|2021-06-14T15:23:55.5058506-03:00;True|2021-06-14T15:20:21.5931745-03:00;True|2021-06-14T15:14:27.2833226-03:00;True|2021-06-14T15:11:52.2062197-03:00;True|2021-06-14T15:06:34.3428535-03:00;True|2021-06-14T14:48:23.4376279-03:00;True|2021-06-14T14:43:25.3504041-03:00;True|2021-06-14T14:41:39.3619258-03:00;True|2021-06-14T14:38:34.8519493-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="APPINSIGHTS_CONNECTIONSTRING">
+      <Value>InstrumentationKey=5680e17f-8610-4d2b-924b-a0652e7d3a60%3bIngestionEndpoint=https://westus2-2.in.applicationinsights.azure.com/</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

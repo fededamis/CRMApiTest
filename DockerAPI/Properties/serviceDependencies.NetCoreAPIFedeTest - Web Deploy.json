@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "appConfig1": {
+      "type": "appConfig",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "appInsights1": {
+      "type": "appInsights",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "appConfig1": {
+      "restored": true,
+      "restoreTime": "2021-06-14T18:23:40.1454266Z"
+    },
+    "appInsights1": {
+      "restored": true,
+      "restoreTime": "2021-06-14T18:23:41.8639071Z"
+    }
+  },
+  "parameters": {
+    "NetCoreAPIFedeTest.resourceGroupName": {
+      "Name": "NetCoreAPIFedeTest.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "TestResourceGroup"
+    },
+    "NetCoreAPIFedeTest.resourceName": {
+      "Name": "NetCoreAPIFedeTest.resourceName",
+      "Type": null,
+      "Value": "NetCoreAPIFedeTest"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "0b42fee1-fa81-4edc-9374-6ec848fbfeaf"
+    },
+    "NetCoreAPIFedeTest.resourceGroupLocation": {
+      "Name": "NetCoreAPIFedeTest.resourceGroupLocation",
+      "Type": null,
+      "Value": "eastus"
+    },
+    "NetCoreAPIFedeTest.subscriptionId": {
+      "Name": "NetCoreAPIFedeTest.subscriptionId",
+      "Type": "subscription",
+      "Value": "0b42fee1-fa81-4edc-9374-6ec848fbfeaf"
+    }
+  }
+}

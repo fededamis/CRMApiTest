@@ -11,8 +11,7 @@ namespace DockerAPI.Extensions
 {    
     public static class AzureAppConfigService
     {
-        public static readonly string AppConfigEndpoint = "AzureAppConfig:Endpoint";
-        public static readonly string AzureKeyVaultEndpoint = "AzureKeyVault:Endpoint";
+        public static readonly string AppConfigEndpoint = "AzureAppConfig:Endpoint";        
 
         public static IHostBuilder UseAzAppConfiguration(this IHostBuilder hostBuilder)
         {

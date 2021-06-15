@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrmEarlyBound;
+using DockerAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.PowerPlatform.Dataverse.Client;
+using Microsoft.Xrm.Sdk;
 
 namespace DockerAPI.Controllers
 {
@@ -17,19 +21,31 @@ namespace DockerAPI.Controllers
         };        
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;                
+        private readonly ICRMService _crmService;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
-            IConfiguration configuration)
+            IConfiguration configuration, ICRMService crmService)
         {
             _logger = logger;
-            _configuration = configuration;
+            _configuration = configuration;            
+            _crmService = crmService;            
         }
 
         [HttpGet]
         [Route("weatherforecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("TEST LOG");
+            _logger.LogWarning("WARNING LOG");            
+
+            //Account Early Bound Entity
+            var ac = new Account();
+            ac.EMailAddress1 = "bla bla bla";
+            //Organization Service
+            var orgDetail = _crmService._instance.OrganizationDetail;
+
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
