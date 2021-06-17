@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrmEarlyBound;
 using DockerAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,9 @@ namespace DockerAPI
         {
             services.AddControllers();
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddSingleton<ICRMService, CRMService>();            
+            var crmService = new CRMService();
+            services.AddSingleton<ICRMService>(_ => crmService);                      
+            services.AddScoped<CrmServiceContext>(_ => new CrmServiceContext(crmService._instance));
             services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);                        
         }
 

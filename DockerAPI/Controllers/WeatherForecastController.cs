@@ -23,13 +23,15 @@ namespace DockerAPI.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IConfiguration _configuration;                
         private readonly ICRMService _crmService;
+        private readonly CrmServiceContext _crmServiceContext;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
-            IConfiguration configuration, ICRMService crmService)
+            IConfiguration configuration, ICRMService crmService, CrmServiceContext crmServiceContext)
         {
             _logger = logger;
             _configuration = configuration;            
-            _crmService = crmService;            
+            _crmService = crmService;
+            _crmServiceContext = crmServiceContext;
         }
 
         [HttpGet]
@@ -42,9 +44,13 @@ namespace DockerAPI.Controllers
             //Account Early Bound Entity
             var ac = new Account();
             ac.EMailAddress1 = "bla bla bla";
-            //Organization Service
-            var orgDetail = _crmService._instance.OrganizationDetail;
+            //LINQ Query           
+            var query1 = from c in _crmServiceContext.AccountSet select c;
 
+            foreach (var q in query1)
+            {
+                Console.WriteLine(q.AccountId);
+            }            
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

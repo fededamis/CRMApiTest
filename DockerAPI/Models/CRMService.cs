@@ -40,7 +40,7 @@ namespace DockerAPI.Models
 
         private ServiceClient CreateOrganizationService()
         {
-            string connectionString = "AuthType=OAuth;Username=federico.damis@agilethought.com;Password=*****;Url=https://org6659b267.crm.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145B91-0C36-4500-8554-080854F2AC97;LoginPrompt=Auto";
+            string connectionString = "AuthType=OAuth;Username=federico.damis@agilethought.com;Password=****;Url=https://org6659b267.crm.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145B91-0C36-4500-8554-080854F2AC97;LoginPrompt=Auto";
             var service = new ServiceClient(connectionString);           
             
             if (!service.IsReady)
